@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">BConvo</string>
+    <string name="binary">Binary</string>
+    <string name="Octal">Octal</string>
+    <string name="Decimal">Decimal</string>
+    <string name="Hexa">Hexa</string>
+    <string name="help">Please use key pad</string>
+    <string name="holder">Answer</string>
+    <string name="backspace">BackSpace</string>
+    <string name="cal">Cal</string>
+    <string-array name="types">
+        <item>Binary</item>
+        <item>Octal</item>
+        <item>Decimal</item>
+        <item>Hexa</item>
+    </string-array>
+</resources>
