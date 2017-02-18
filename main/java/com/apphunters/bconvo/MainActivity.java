@@ -120,6 +120,43 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    public void crunch(View view)
+    {
+
+        API ap = new API(uI.getText().toString(),getType());
+        ap.startConversion();
+        final String ans = ap.getAnswers();
+        hand.post(new Runnable() {
+            @Override
+            public void run() {
+            String[] temp = ans.split(";");
+             TextView txB = (TextView) findViewById(R.id.BText);
+                TextView txO = (TextView) findViewById(R.id.OText);
+                TextView txD = (TextView) findViewById(R.id.DText);
+                TextView txH = (TextView) findViewById(R.id.Htext);
+                txB.setText(temp[0]);
+                txO.setText(temp[1]);
+                txD.setText(temp[2]);
+                txH.setText(temp[3]);
+            }
+        });
+    }
+
+    public int getType()
+    {
+        String a = spin.getSelectedItem().toString();
+        if (a.equals("Binary")) {
+
+            return 2;
+        }else if (a.equals("Octal")) {
+          return 8;
+        }else if (a.equals("Decimal")) {
+            return 10;
+        }else
+        {
+            return 16;
+        }
+    }
 
 
 }

@@ -78,6 +78,7 @@ public class Checker {
 
             Displaydot(".");
         }
+
         if(num.equals("BackSpace"))
         {
             BackText();
@@ -96,7 +97,9 @@ public class Checker {
         hand.post(new Runnable() {
             @Override
             public void run() {
-                build.delete(0,build.length());
+
+                build = null;
+                build = new StringBuilder();
                 build.append(uI.getText().toString());
                 String temp = build.toString();
                 if(temp.contains("P"))
@@ -118,7 +121,8 @@ public class Checker {
         hand.post(new Runnable() {
             @Override
             public void run() {
-                build.delete(0,build.length());
+                build = null;
+                build = new StringBuilder();
                 build.append(uI.getText().toString());
                 String temp = build.toString();
                 if(temp.contains("P"))
@@ -145,21 +149,34 @@ public class Checker {
         hand.post(new Runnable() {
             @Override
             public void run() {
-                build.delete(0,build.length());
-                build.append(uI.getText().toString());
-                String temp = build.toString();
+                build = null;
+                build = new StringBuilder();
+
+                String temp = uI.getText().toString();
+                if(temp.indexOf('S')!=-1)
+                {
+                    temp = temp.substring(0,temp.length()-9);
+                }
+                //java.lang.System.out.println( temp+"  "+temp.length());
+                build.append(temp);
                 if(temp.contains("P"))
                 {
 
-                    build.delete(0,build.length());
 
-                }else {
+
+                }else if(temp.isEmpty())
+                {
+
+                }else
+                {
 
                         build.deleteCharAt(build.length()-1);
+
                         if(build.toString().isEmpty())
                         {
                             uI.setText("Please use key pad");
                         }else{
+
                         uI.setText(build.toString());
                         }
 
